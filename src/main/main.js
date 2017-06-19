@@ -1,11 +1,7 @@
-// import { app, BrowserWindow, Menu, ipcMain } from 'electron';
-// import path from 'path';
+import { app, BrowserWindow, Menu, ipcMain } from 'electron';
+import path from 'path';
 
-var electron = require('electron');
-var app = electron.app;
-var BrowserWindow = electron.BrowserWindow;
-var path = require('path');
-var mainWindow = null;
+let mainWindow = null;
 
 const debug = /--debug/.test(process.argv[2]);
 
@@ -18,17 +14,17 @@ function initialize () {
         if (process.platform !== 'darwin') {
             app.quit()
         }
-    })
+    });
 
     app.on('activate', function () {
         if (mainWindow === null) {
             createWindow()
         }
-    })
+    });
 }
 
 function createWindow () {
-    var windowOptions = {
+    let windowOptions = {
         width: 1080,
         minHieght: 680,
         height: 840,
